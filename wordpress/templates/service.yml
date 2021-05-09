@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/managed-by: Helm
+    run: wordpress
+  name: wordpress
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app.kubernetes.io/managed-by: Helm
+    run: wordpress
+  type: NodePort
+status:
+  loadBalancer: {}

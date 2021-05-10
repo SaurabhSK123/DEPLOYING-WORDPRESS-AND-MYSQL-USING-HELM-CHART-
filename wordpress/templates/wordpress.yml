@@ -3,12 +3,12 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: wordpress
-  name: wordpress
+    run: {{ .Values.wordpress }}
+  name: {{ .Values.wordpress }}
 spec:
   containers:
-  - image: wordpress:5.1.1-php7.3-apache
-    name: wordpress
+  - image: {{ .Values.wordpress_image }} 
+    name: {{ .Values.wordpress }}
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
